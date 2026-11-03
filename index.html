@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Centro de Terapia Ray — Reporte de publicidad</title>
+<style>
+  :root {
+    --fg: #1c1a17; --fg2: #6b6560; --bg: #faf9f7; --panel: #ffffff;
+    --line: #e5e1db; --c1: #3f6fb5; --grid: #ece8e2; --axis: #cfc9c1;
+    --radius: 10px;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fg: #eceae6; --fg2: #a39d96; --bg: #1a1917; --panel: #232220;
+      --line: #35332f; --c1: #7aa5e0; --grid: #302e2b; --axis: #474440;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fg: #eceae6; --fg2: #a39d96; --bg: #1a1917; --panel: #232220;
+    --line: #35332f; --c1: #7aa5e0; --grid: #302e2b; --axis: #474440;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { margin-bottom: 28px; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: 29px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .take { margin: 0; color: var(--fg2); max-width: 62ch; }
+  .take b { color: var(--fg); font-weight: 600; }
+  .stamp { margin: 10px 0 0; font-size: 12px; color: var(--fg2); }
+  h2 { font-size: 17px; font-weight: 600; margin: 40px 0 4px; }
+  .sub { margin: 0 0 16px; font-size: 13px; color: var(--fg2); max-width: 70ch; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px; }
+  .stack > * + * { margin-top: 12px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; }
+  .lab { font-size: 12px; color: var(--fg2); margin: 0 0 6px; }
+  .num { font-family: var(--serif); font-size: 27px; margin: 0; font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .foot { font-size: 12px; color: var(--fg2); margin: 6px 0 0; font-variant-numeric: tabular-nums; }
+  .foot b { font-weight: 600; }
+  .ct { font-size: 15px; font-weight: 600; margin: 0 0 2px; }
+  .cn { font-size: 12px; color: var(--fg2); margin: 0 0 14px; }
+  details > summary { cursor: pointer; list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  summary .cn { margin-bottom: 0; }
+  .car { display: inline-block; margin-right: 7px; color: var(--fg2); transition: transform .15s ease-out; }
+  details[open] > summary .car { transform: rotate(90deg); }
+  details.card > .tw { margin-top: 14px; }
+  .ctrl { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .ctrl label { font-size: 12px; color: var(--fg2); }
+  select { font-family: inherit; font-size: 13px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 10px; }
+  .chart { position: relative; min-height: 250px; }
+  .chart svg { display: block; overflow: visible; }
+  .tip { position: absolute; z-index: 5; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 4px 14px rgba(0,0,0,.14); padding: 7px 10px; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; opacity: 0; transition: opacity .12s; }
+  .tiph { color: var(--fg2); margin-bottom: 3px; }
+  .tipr { display: flex; align-items: center; gap: 6px; }
+  .sw { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+  .tw { max-height: 420px; overflow: auto; margin: 0 -16px -16px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th { position: sticky; top: 0; background: var(--panel); text-align: left; font-weight: 600; color: var(--fg2); padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; font-size: 12px; }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: none; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg2); }
+  @media print {
+    body { background: #fff; }
+    .card { break-inside: avoid; }
+    details > summary { display: none; }
+    .tw { max-height: none; overflow: visible; }
+    .ctrl { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Centro de Terapia Ray — Reporte de publicidad</h1>
+    <p class="take" id="take"></p>
+    <p class="stamp" id="stamp"></p>
+  </header>
+
+  <section>
+    <h2>Totales de la gestión</h2>
+    <p class="sub">Acumulado desde el inicio de la gestión. Una conversación es un mensaje de WhatsApp iniciado por alguien que vio un anuncio.</p>
+    <div class="tiles" id="kpis"></div>
+  </section>
+
+  <section>
+    <h2>Mes a mes</h2>
+    <p class="sub">Inversión y conversaciones generadas cada mes.</p>
+    <div class="stack">
+      <div class="card">
+        <p class="ct">Inversión por mes</p>
+        <p class="cn">Al pasar el cursor sobre una barra se muestra el detalle del mes.</p>
+        <div class="chart" id="g-inv"></div>
+      </div>
+      <div class="card">
+        <p class="ct">Conversaciones por mes</p>
+        <p class="cn">Conversaciones de WhatsApp iniciadas cada mes.</p>
+        <div class="chart" id="g-msg"></div>
+      </div>
+      <details class="card" open>
+        <summary><p class="ct"><span class="car">›</span>Tabla mes a mes</p><p class="cn">Inversión, conversaciones y costo por conversación de cada mes.</p></summary>
+        <div class="tw">
+          <table><thead><tr><th>Mes</th><th class="n">Inversión</th><th class="n">Conversaciones</th><th class="n">Costo/conv.</th></tr></thead><tbody id="tb-mes"></tbody></table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>Día a día</h2>
+    <p class="sub">Inversión y conversaciones de cada día, para el periodo que se elija.</p>
+    <div class="ctrl">
+      <label for="per">Periodo</label>
+      <select id="per">
+        <option value="mes">Último mes</option>
+        <option value="mesant">Mes anterior</option>
+        <option value="30">Últimos 30 días</option>
+        <option value="90">Últimos 90 días</option>
+        <option value="todo">Toda la gestión</option>
+      </select>
+    </div>
+    <div class="tiles" id="dkpis"></div>
+    <div class="stack" style="margin-top:12px">
+      <div class="card">
+        <p class="ct">Inversión por día</p>
+        <p class="cn">Al pasar el cursor sobre una barra se muestra la inversión y las conversaciones de ese día.</p>
+        <div class="chart" id="g-dinv"></div>
+      </div>
+      <div class="card">
+        <p class="ct">Conversaciones por día</p>
+        <p class="cn">Conversaciones de WhatsApp iniciadas cada día del periodo.</p>
+        <div class="chart" id="g-dmsg"></div>
+      </div>
+      <details class="card">
+        <summary><p class="ct"><span class="car">›</span>Tabla día por día</p><p class="cn">Del día más reciente al más antiguo. Solo días con inversión.</p></summary>
+        <div class="tw">
+          <table><thead><tr><th>Día</th><th class="n">Inversión</th><th class="n">Conversaciones</th><th class="n">Costo/conv.</th></tr></thead><tbody id="tb-dia"></tbody></table>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer id="pie"></footer>
+</div>
+
+<script id="datos" type="application/json">{"generado":"2026-11-02T16:55:00-05:00","diario":[{"d":"2026-03-08","i":60.8,"m":5},{"d":"2026-03-09","i":398.08,"m":83},{"d":"2026-03-10","i":349.88,"m":86},{"d":"2026-03-11","i":480.26,"m":166},{"d":"2026-03-12","i":653.15,"m":224},{"d":"2026-03-13","i":597.14,"m":194},{"d":"2026-03-14","i":415.16,"m":111},{"d":"2026-03-16","i":927.86,"m":178},{"d":"2026-03-17","i":868.16,"m":228},{"d":"2026-03-18","i":693.56,"m":166},{"d":"2026-03-19","i":569.06,"m":130},{"d":"2026-03-20","i":441.55,"m":244},{"d":"2026-03-21","i":614.6,"m":229},{"d":"2026-03-22","i":5.45,"m":4},{"d":"2026-03-23","i":853.38,"m":263},{"d":"2026-03-24","i":867.88,"m":280},{"d":"2026-03-25","i":803.21,"m":196},{"d":"2026-03-26","i":488.5,"m":151},{"d":"2026-03-27","i":480.2,"m":136},{"d":"2026-03-28","i":425.93,"m":111},{"d":"2026-03-29","i":441.74,"m":112},{"d":"2026-03-30","i":274.47,"m":58},{"d":"2026-03-31","i":235.21,"m":45},{"d":"2026-04-06","i":320.12,"m":57},{"d":"2026-04-07","i":436.55,"m":98},{"d":"2026-04-08","i":69.59,"m":17},{"d":"2026-04-09","i":79.08,"m":13},{"d":"2026-04-10","i":72.44,"m":13},{"d":"2026-04-11","i":103.01,"m":24},{"d":"2026-04-12","i":105.82,"m":33},{"d":"2026-04-13","i":94.46,"m":22},{"d":"2026-04-14","i":118.93,"m":32},{"d":"2026-04-15","i":96.5,"m":25},{"d":"2026-04-16","i":123.35,"m":27},{"d":"2026-04-17","i":109.25,"m":43},{"d":"2026-04-18","i":98.0,"m":42},{"d":"2026-04-19","i":93.42,"m":34},{"d":"2026-04-20","i":96.98,"m":19},{"d":"2026-04-21","i":148.74,"m":47},{"d":"2026-04-22","i":122.15,"m":49},{"d":"2026-04-23","i":89.01,"m":33},{"d":"2026-04-24","i":76.0,"m":21},{"d":"2026-04-25","i":85.5,"m":40},{"d":"2026-04-26","i":89.63,"m":41},{"d":"2026-04-27","i":114.4,"m":54},{"d":"2026-04-28","i":111.91,"m":28},{"d":"2026-04-29","i":91.75,"m":58},{"d":"2026-04-30","i":71.75,"m":15},{"d":"2026-05-01","i":70.72,"m":23},{"d":"2026-05-02","i":63.9,"m":36},{"d":"2026-05-03","i":71.08,"m":31},{"d":"2026-05-04","i":71.59,"m":33},{"d":"2026-05-05","i":77.0,"m":33},{"d":"2026-05-06","i":65.58,"m":26},{"d":"2026-05-07","i":53.89,"m":35},{"d":"2026-05-08","i":60.55,"m":28},{"d":"2026-05-09","i":94.45,"m":36},{"d":"2026-05-10","i":87.53,"m":48},{"d":"2026-05-11","i":131.27,"m":59},{"d":"2026-05-12","i":171.17,"m":85},{"d":"2026-05-13","i":128.5,"m":57},{"d":"2026-05-14","i":95.22,"m":47},{"d":"2026-05-15","i":80.21,"m":43},{"d":"2026-05-16","i":100.63,"m":51},{"d":"2026-05-17","i":76.15,"m":39},{"d":"2026-05-18","i":57.85,"m":29},{"d":"2026-05-19","i":104.92,"m":32},{"d":"2026-05-20","i":86.56,"m":31},{"d":"2026-05-21","i":82.41,"m":54},{"d":"2026-05-22","i":65.1,"m":41},{"d":"2026-05-23","i":72.16,"m":52},{"d":"2026-05-24","i":66.58,"m":43},{"d":"2026-05-25","i":77.47,"m":41},{"d":"2026-05-26","i":94.18,"m":48},{"d":"2026-05-27","i":131.6,"m":65},{"d":"2026-05-28","i":128.04,"m":67},{"d":"2026-05-29","i":132.3,"m":68},{"d":"2026-05-30","i":153.82,"m":75},{"d":"2026-05-31","i":161.55,"m":77},{"d":"2026-06-01","i":128.8,"m":56},{"d":"2026-06-02","i":222.13,"m":73},{"d":"2026-06-03","i":203.03,"m":104},{"d":"2026-06-04","i":145.57,"m":88},{"d":"2026-06-05","i":144.96,"m":54},{"d":"2026-06-06","i":156.2,"m":63},{"d":"2026-06-07","i":165.67,"m":93},{"d":"2026-06-08","i":119.17,"m":41},{"d":"2026-06-09","i":203.98,"m":62},{"d":"2026-06-10","i":160.84,"m":76},{"d":"2026-06-11","i":133.91,"m":49},{"d":"2026-06-12","i":111.62,"m":44},{"d":"2026-06-13","i":173.1,"m":69},{"d":"2026-06-14","i":187.32,"m":58},{"d":"2026-06-15","i":170.54,"m":38},{"d":"2026-06-16","i":224.68,"m":79},{"d":"2026-06-17","i":170.72,"m":66},{"d":"2026-06-18","i":144.72,"m":47},{"d":"2026-06-19","i":145.53,"m":58},{"d":"2026-06-20","i":144.54,"m":52},{"d":"2026-06-21","i":153.88,"m":55},{"d":"2026-06-22","i":179.19,"m":49},{"d":"2026-06-23","i":214.79,"m":56},{"d":"2026-06-24","i":172.87,"m":54},{"d":"2026-06-25","i":147.37,"m":37},{"d":"2026-06-26","i":127.61,"m":44},{"d":"2026-06-27","i":146.35,"m":47},{"d":"2026-06-28","i":185.61,"m":57},{"d":"2026-06-29","i":205.99,"m":51},{"d":"2026-06-30","i":157.66,"m":48},{"d":"2026-07-01","i":237.52,"m":65},{"d":"2026-07-02","i":159.99,"m":69},{"d":"2026-07-03","i":129.76,"m":32},{"d":"2026-07-04","i":124.44,"m":48},{"d":"2026-07-05","i":138.56,"m":36},{"d":"2026-07-06","i":140.79,"m":45},{"d":"2026-07-07","i":177.98,"m":52},{"d":"2026-07-08","i":149.87,"m":42},{"d":"2026-07-09","i":118.27,"m":31},{"d":"2026-07-10","i":131.51,"m":40},{"d":"2026-07-11","i":135.65,"m":41},{"d":"2026-07-12","i":129.01,"m":37},{"d":"2026-07-13","i":118.47,"m":34},{"d":"2026-07-14","i":181.3,"m":47},{"d":"2026-07-15","i":163.31,"m":50},{"d":"2026-07-16","i":123.95,"m":40},{"d":"2026-07-17","i":119.62,"m":40},{"d":"2026-07-18","i":107.43,"m":46},{"d":"2026-07-19","i":124.61,"m":57},{"d":"2026-07-20","i":146.13,"m":50},{"d":"2026-07-21","i":149.21,"m":36},{"d":"2026-07-22","i":143.52,"m":50},{"d":"2026-07-23","i":143.68,"m":58},{"d":"2026-07-24","i":117.82,"m":53},{"d":"2026-07-25","i":117.48,"m":53},{"d":"2026-07-26","i":36.83,"m":10},{"d":"2026-07-27","i":117.41,"m":47},{"d":"2026-07-28","i":82.6,"m":30},{"d":"2026-07-29","i":40.2,"m":14},{"d":"2026-07-30","i":110.47,"m":28},{"d":"2026-07-31","i":111.88,"m":29},{"d":"2026-08-01","i":41.89,"m":11},{"d":"2026-08-02","i":76.94,"m":29},{"d":"2026-08-03","i":85.4,"m":31},{"d":"2026-08-04","i":83.18,"m":23},{"d":"2026-08-05","i":99.58,"m":44},{"d":"2026-08-06","i":74.52,"m":40},{"d":"2026-08-07","i":87.49,"m":20},{"d":"2026-08-08","i":120.41,"m":23},{"d":"2026-08-09","i":107.91,"m":45},{"d":"2026-08-10","i":141.48,"m":47},{"d":"2026-08-11","i":146.56,"m":44},{"d":"2026-08-12","i":98.68,"m":28},{"d":"2026-08-13","i":111.8,"m":49},{"d":"2026-08-14","i":118.4,"m":49},{"d":"2026-08-15","i":100.3,"m":41},{"d":"2026-08-16","i":95.75,"m":43},{"d":"2026-08-17","i":177.69,"m":48},{"d":"2026-08-18","i":145.85,"m":50},{"d":"2026-08-19","i":102.36,"m":48},{"d":"2026-08-20","i":102.03,"m":29},{"d":"2026-08-21","i":115.27,"m":41},{"d":"2026-08-22","i":100.18,"m":48},{"d":"2026-08-23","i":138.51,"m":50},{"d":"2026-08-24","i":124.93,"m":47},{"d":"2026-08-25","i":156.59,"m":59},{"d":"2026-08-26","i":157.04,"m":60},{"d":"2026-08-27","i":167.12,"m":66},{"d":"2026-08-28","i":169.3,"m":60},{"d":"2026-08-29","i":201.01,"m":70},{"d":"2026-08-30","i":262.65,"m":94},{"d":"2026-08-31","i":273.77,"m":98},{"d":"2026-09-01","i":234.57,"m":69},{"d":"2026-09-02","i":260.69,"m":89},{"d":"2026-09-03","i":214.21,"m":75},{"d":"2026-09-04","i":163.84,"m":59},{"d":"2026-09-05","i":185.27,"m":65},{"d":"2026-09-06","i":233.55,"m":84},{"d":"2026-09-07","i":217.8,"m":83},{"d":"2026-09-08","i":239.03,"m":83},{"d":"2026-09-09","i":220.54,"m":73},{"d":"2026-09-10","i":201.5,"m":76},{"d":"2026-09-11","i":135.36,"m":45},{"d":"2026-09-12","i":150.38,"m":55},{"d":"2026-09-13","i":178.57,"m":58},{"d":"2026-09-14","i":242.07,"m":71},{"d":"2026-09-15","i":276.05,"m":83},{"d":"2026-09-16","i":212.81,"m":69},{"d":"2026-09-17","i":151.88,"m":66},{"d":"2026-09-18","i":141.5,"m":40},{"d":"2026-09-19","i":197.06,"m":60},{"d":"2026-09-20","i":201.38,"m":66},{"d":"2026-09-21","i":202.74,"m":76},{"d":"2026-09-22","i":282.82,"m":62},{"d":"2026-09-23","i":197.59,"m":64},{"d":"2026-09-24","i":150.85,"m":61},{"d":"2026-09-25","i":203.77,"m":78},{"d":"2026-09-26","i":156.2,"m":53},{"d":"2026-09-27","i":182.04,"m":66},{"d":"2026-09-28","i":223.4,"m":89},{"d":"2026-09-29","i":221.89,"m":61},{"d":"2026-09-30","i":187.6,"m":53},{"d":"2026-10-01","i":248.9,"m":85},{"d":"2026-10-02","i":198.87,"m":76},{"d":"2026-10-03","i":162.25,"m":56},{"d":"2026-10-04","i":198.74,"m":67},{"d":"2026-10-05","i":236.61,"m":98},{"d":"2026-10-06","i":259.24,"m":76},{"d":"2026-10-07","i":225.62,"m":57},{"d":"2026-10-08","i":178.88,"m":62},{"d":"2026-10-09","i":136.11,"m":51},{"d":"2026-10-10","i":234.75,"m":81},{"d":"2026-10-11","i":265.99,"m":81},{"d":"2026-10-12","i":231.88,"m":84},{"d":"2026-10-13","i":232.6,"m":71},{"d":"2026-10-14","i":185.89,"m":70},{"d":"2026-10-15","i":182.27,"m":46},{"d":"2026-10-16","i":222.21,"m":51},{"d":"2026-10-17","i":147.74,"m":46},{"d":"2026-10-18","i":230.49,"m":81},{"d":"2026-10-19","i":199.14,"m":77},{"d":"2026-10-20","i":205.65,"m":92},{"d":"2026-10-21","i":211.25,"m":75},{"d":"2026-10-22","i":164.28,"m":53},{"d":"2026-10-23","i":169.5,"m":70},{"d":"2026-10-24","i":169.01,"m":44},{"d":"2026-10-25","i":164.66,"m":52},{"d":"2026-10-26","i":218.91,"m":74},{"d":"2026-10-27","i":190.71,"m":46},{"d":"2026-10-28","i":160.67,"m":30},{"d":"2026-10-29","i":119.35,"m":37},{"d":"2026-10-30","i":165.49,"m":41},{"d":"2026-10-31","i":156.68,"m":57},{"d":"2026-11-01","i":204.28,"m":56},{"d":"2026-11-02","i":42.05,"m":22}]}</script>
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('datos').textContent);
+  var MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','setiembre','octubre','noviembre','diciembre'];
+  var CORTOS = ['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];
+  function miles(v, dec) {
+    if (v === null || v === undefined || isNaN(v)) return '—';
+    var s = Math.abs(v).toFixed(dec), p = s.split('.');
+    p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (v < 0 ? '-' : '') + p.join('.');
+  }
+  var f = {
+    s0: function (v) { return v == null ? '—' : 'S/ ' + miles(v, 0); },
+    s2: function (v) { return v == null ? '—' : 'S/ ' + miles(v, 2); },
+    n0: function (v) { return v == null ? '—' : miles(v, 0); },
+    n1: function (v) { return v == null ? '—' : miles(v, 1); },
+    mes: function (k) { if (!k) return '—'; var p = k.split('-'); return MESES[+p[1] - 1] + ' ' + p[0]; },
+    mc: function (k) { if (!k) return ''; return CORTOS[+k.split('-')[1] - 1]; },
+    dia: function (k) { if (!k) return ''; var p = k.split('-'); return +p[2] + ' ' + CORTOS[+p[1] - 1]; },
+    diaL: function (k) { if (!k) return '—'; var p = k.split('-'); return +p[2] + ' de ' + MESES[+p[1] - 1]; }
+  };
+
+  var porMes = {};
+  D.diario.forEach(function (r) {
+    var k = r.d.slice(0, 7);
+    if (!porMes[k]) porMes[k] = { mes: k, inv: 0, msg: 0 };
+    porMes[k].inv += r.i; porMes[k].msg += r.m;
+  });
+  var mensual = Object.keys(porMes).sort().map(function (k) {
+    var o = porMes[k];
+    return { mes: k, inv: o.inv, msg: o.msg, cos: o.msg ? o.inv / o.msg : null };
+  });
+  var ult = mensual[mensual.length - 1];
+  var pen = mensual.length > 1 ? mensual[mensual.length - 2] : null;
+  var invH = mensual.reduce(function (s, r) { return s + r.inv; }, 0);
+  var msgH = mensual.reduce(function (s, r) { return s + r.msg; }, 0);
+  var cosH = msgH ? invH / msgH : null;
+  var ultDia = D.diario[D.diario.length - 1].d;
+
+  document.getElementById('take').innerHTML =
+    'Desde el inicio de la gestión se han invertido <b>' + f.s0(invH) + '</b> y se han generado <b>' + f.n0(msgH) +
+    '</b> conversaciones de WhatsApp, a <b>' + f.s2(cosH) + '</b> cada una. En ' + f.mes(ult.mes) + ' van <b>' +
+    f.s0(ult.inv) + '</b> y <b>' + f.n0(ult.msg) + '</b> conversaciones.';
+  document.getElementById('stamp').textContent = 'Datos al ' + f.diaL(ultDia) + ' de ' + ultDia.slice(0, 4) + '.';
+  document.getElementById('pie').textContent =
+    'Cuenta publicitaria de Meta 1471912511189002 · Moneda: soles (PEN) · Las conversaciones corresponden a la métrica «conversaciones de mensajes iniciadas» con atribución de 7 días. Este archivo contiene una copia de los datos al momento de generarlo y no se actualiza por sí solo.';
+
+  function tile(lab, num, foot) {
+    return '<div class="card"><p class="lab">' + lab + '</p><p class="num">' + num + '</p>' + (foot ? '<p class="foot">' + foot + '</p>' : '') + '</div>';
+  }
+  document.getElementById('kpis').innerHTML =
+    tile('Inversión total', f.s0(invH), 'desde <b>' + f.mes(mensual[0].mes) + '</b>') +
+    tile('Conversaciones', f.n0(msgH), 'en <b>' + mensual.length + '</b> meses') +
+    tile('Costo por conversación', f.s2(cosH), 'promedio de toda la gestión');
+
+  var ALTO = 250;
+  function mide(el) { return Math.max(el.clientWidth || 320, 260); }
+  function svg(el, w) {
+    el.innerHTML = '';
+    var s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    s.setAttribute('width', '100%'); s.setAttribute('height', ALTO);
+    s.setAttribute('viewBox', '0 0 ' + w + ' ' + ALTO);
+    el.appendChild(s); return s;
+  }
+  function el2(tag, attrs) {
+    var e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function txt(x, y, s, anchor) {
+    var t = el2('text', { x: x, y: y, 'text-anchor': anchor || 'middle', fill: 'var(--fg2)', 'font-size': 11 });
+    t.textContent = s; return t;
+  }
+  function tooltip(el) {
+    var t = document.createElement('div'); t.className = 'tip'; el.appendChild(t);
+    return {
+      show: function (x, y, titulo, lineas) {
+        var h = '<div class="tiph">' + titulo + '</div>';
+        lineas.forEach(function (l) {
+          h += '<div class="tipr">' + (l.c ? '<span class="sw" style="background:' + l.c + '"></span>' : '') + '<span>' + l.t + '</span></div>';
+        });
+        t.innerHTML = h; t.style.opacity = '1';
+        var max = el.clientWidth - t.offsetWidth - 4;
+        t.style.left = Math.max(4, Math.min(x + 12, max)) + 'px';
+        t.style.top = Math.max(4, y - 10) + 'px';
+      },
+      hide: function () { t.style.opacity = '0'; }
+    };
+  }
+  function ticks(min, max, n) {
+    var span = max - min || 1;
+    var step = Math.pow(10, Math.floor(Math.log(span / n) / Math.LN10));
+    var err = span / n / step;
+    if (err >= 7.5) step *= 10; else if (err >= 3) step *= 5; else if (err >= 1.5) step *= 2;
+    var out = [], v = Math.ceil(min / step) * step;
+    for (; v <= max + step * 0.001; v += step) out.push(Math.round(v * 1e6) / 1e6);
+    return out;
+  }
+  function ancho(s) { return s.length * 6.2 + 10; }
+
+  function barras(id, filas, opts) {
+    var el = document.getElementById(id); if (!el) return;
+    var W = mide(el), s = svg(el, W), tt = tooltip(el);
+    var top = 12, bot = 26, H = ALTO - top - bot;
+    if (!filas.length) { el.innerHTML = '<p class="cn" style="margin:0">Sin datos</p>'; return; }
+    var maxV = Math.max.apply(null, filas.map(opts.v)) * 1.1 || 1;
+    var tk = ticks(0, maxV, 5);
+    var izq = Math.max.apply(null, tk.map(function (t) { return ancho(opts.fe(t)); }));
+    var x0 = izq, x1 = W - 10;
+    function Y(v) { return top + H - v / maxV * H; }
+    tk.forEach(function (t) {
+      s.appendChild(el2('line', { x1: x0, x2: x1, y1: Y(t), y2: Y(t), stroke: 'var(--grid)' }));
+      s.appendChild(txt(x0 - 8, Y(t) + 4, opts.fe(t), 'end'));
+    });
+    s.appendChild(el2('line', { x1: x0, x2: x1, y1: top + H, y2: top + H, stroke: 'var(--axis)' }));
+    var n = filas.length, paso = (x1 - x0) / n, bw = Math.min(paso * 0.7, 34);
+    var cada = Math.max(1, Math.ceil(n / Math.max(2, Math.floor((x1 - x0) / 46))));
+    filas.forEach(function (r, i) {
+      var cx = x0 + paso * (i + 0.5), v = opts.v(r);
+      if (v != null) {
+        var rect = el2('rect', { x: cx - bw / 2, width: bw, y: Y(v), height: Math.max(0, top + H - Y(v)), rx: 3, fill: 'var(--c1)' });
+        function show() { tt.show(cx, Y(v), opts.ft(r), opts.lineas(r)); }
+        rect.addEventListener('pointerenter', show);
+        rect.addEventListener('pointermove', show);
+        rect.addEventListener('pointerleave', tt.hide);
+        s.appendChild(rect);
+      }
+      if ((n - 1 - i) % cada === 0) s.appendChild(txt(cx, top + H + 17, opts.fx(r)));
+    });
+  }
+
+  var lineasMes = function (r) {
+    return [{ c: 'var(--c1)', t: 'Inversión: ' + f.s0(r.inv) }, { t: 'Conversaciones: ' + f.n0(r.msg) }, { t: 'Costo/conv.: ' + f.s2(r.cos) }];
+  };
+  function pintaMensual() {
+    barras('g-inv', mensual, { v: function (r) { return r.inv; }, fe: function (t) { return 'S/ ' + miles(t, 0); }, fx: function (r) { return f.mc(r.mes); }, ft: function (r) { return f.mes(r.mes); }, lineas: lineasMes });
+    barras('g-msg', mensual, { v: function (r) { return r.msg; }, fe: function (t) { return miles(t, 0); }, fx: function (r) { return f.mc(r.mes); }, ft: function (r) { return f.mes(r.mes); }, lineas: lineasMes });
+  }
+  document.getElementById('tb-mes').innerHTML = mensual.slice().reverse().map(function (r) {
+    return '<tr><td>' + f.mes(r.mes) + '</td><td class="n">' + f.s2(r.inv) + '</td><td class="n">' + f.n0(r.msg) + '</td><td class="n">' + f.s2(r.cos) + '</td></tr>';
+  }).join('');
+
+  function rango(per) {
+    var d = D.diario;
+    if (per === 'todo') return d;
+    if (per === 'mes') return d.filter(function (r) { return r.d.slice(0, 7) === ult.mes; });
+    if (per === 'mesant') return d.filter(function (r) { return pen && r.d.slice(0, 7) === pen.mes; });
+    return d.slice(Math.max(0, d.length - (+per)));
+  }
+  function pintaDiario() {
+    var filas = rango(document.getElementById('per').value);
+    var inv = filas.reduce(function (s, r) { return s + r.i; }, 0);
+    var msg = filas.reduce(function (s, r) { return s + r.m; }, 0);
+    document.getElementById('dkpis').innerHTML =
+      tile('Inversión del periodo', f.s0(inv), 'en <b>' + filas.length + '</b> días') +
+      tile('Conversaciones', f.n0(msg), 'promedio <b>' + f.n1(filas.length ? msg / filas.length : null) + '</b> por día') +
+      tile('Costo por conversación', f.s2(msg ? inv / msg : null), 'promedio del periodo');
+    var lineasDia = function (r) {
+      return [{ c: 'var(--c1)', t: 'Inversión: ' + f.s2(r.i) }, { t: 'Conversaciones: ' + f.n0(r.m) }, { t: 'Costo/conv.: ' + f.s2(r.m ? r.i / r.m : null) }];
+    };
+    barras('g-dinv', filas, { v: function (r) { return r.i; }, fe: function (t) { return 'S/ ' + miles(t, 0); }, fx: function (r) { return f.dia(r.d); }, ft: function (r) { return f.diaL(r.d); }, lineas: lineasDia });
+    barras('g-dmsg', filas, { v: function (r) { return r.m; }, fe: function (t) { return miles(t, 0); }, fx: function (r) { return f.dia(r.d); }, ft: function (r) { return f.diaL(r.d); }, lineas: lineasDia });
+    document.getElementById('tb-dia').innerHTML = filas.slice().reverse().map(function (r) {
+      return '<tr><td>' + f.diaL(r.d) + ' ' + r.d.slice(0, 4) + '</td><td class="n">' + f.s2(r.i) + '</td><td class="n">' + f.n0(r.m) + '</td><td class="n">' + f.s2(r.m ? r.i / r.m : null) + '</td></tr>';
+    }).join('');
+  }
+  document.getElementById('per').addEventListener('change', pintaDiario);
+  function todo() { pintaMensual(); pintaDiario(); }
+  todo();
+  var t;
+  window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(todo, 150); });
+})();
+</script>
+</body>
+</html>
